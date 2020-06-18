@@ -15,7 +15,8 @@ public class Empleado {
   private String nombre;
   private int edad;
   private BigDecimal sueldo;
-  private int estado;
+  @Column(name = "estado_id")
+  private int estadoId;
   @ManyToOne
   @JoinColumn(name = "categoria_id", referencedColumnName = "categoria_id")
   private Categoria categoria;
@@ -56,12 +57,12 @@ public class Empleado {
     this.sueldo = sueldo;
   }
 
-  public int getEstado() {
-    return estado;
+  public int getEstadoId() {
+    return estadoId;
   }
 
-  public void setEstado(int estado) {
-    this.estado = estado;
+  public void setEstadoId(int estado) {
+    this.estadoId = estado;
   }
 
   public Categoria getCategoria() {
