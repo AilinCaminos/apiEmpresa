@@ -2,12 +2,9 @@ package ar.com.ada.api.rrhh.entities;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "categoria")
@@ -20,6 +17,9 @@ public class Categoria {
     private String nombre;
     @Column( name = "sueldo_base")
     private BigDecimal sueldoBase;
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Empleado> empleados;
+    
 
     public int getCategoriaId() {
         return categoriaId;
@@ -44,6 +44,14 @@ public class Categoria {
     public void setSueldoBase(BigDecimal sueldoBase) {
         this.sueldoBase = sueldoBase;
     }
+
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
     
 
 }
