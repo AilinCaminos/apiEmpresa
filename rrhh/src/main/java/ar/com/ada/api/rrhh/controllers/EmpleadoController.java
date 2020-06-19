@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ar.com.ada.api.rrhh.entities.Empleado;
 import ar.com.ada.api.rrhh.models.requests.InfoBasicaEmpleadoRequest;
+import ar.com.ada.api.rrhh.models.responses.GenericResponse;
 import ar.com.ada.api.rrhh.services.CategoriaService;
 import ar.com.ada.api.rrhh.services.EmpleadoService;
 
@@ -31,11 +32,15 @@ public class EmpleadoController {
         empleado.setSueldo(info.sueldo);
         empleado.setCategoria(categoriaService.buscarCategoriaPorId(info.categoriaId));
         empleado.setFechaAlta(new Date());
-        empleado.setEmpleadoId(1);
+        empleado.setEstadoId(1);
         empleadoService.crearEmpleado(empleado);
         
+        GenericResponse resp = new GenericResponse();
+        resp.isOk = true;
+        resp.id = empleado.getEmpleadoId();
+        resp.message = "Empleado generado con exito";
 
-        return ResponseEntity.ok(empleado.getEmpleadoId());
+        return ResponseEntity.ok(resp);
 
     }
     @GetMapping("/empleados")

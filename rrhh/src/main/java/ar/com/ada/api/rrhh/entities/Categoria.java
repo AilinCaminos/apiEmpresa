@@ -6,6 +6,9 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name = "categoria")
 public class Categoria {
@@ -17,7 +20,8 @@ public class Categoria {
     private String nombre;
     @Column( name = "sueldo_base")
     private BigDecimal sueldoBase;
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) //,fetch = FetchType.EAGER)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Empleado> empleados;
     
 

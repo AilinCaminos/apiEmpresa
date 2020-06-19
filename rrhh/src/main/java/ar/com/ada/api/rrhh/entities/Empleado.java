@@ -61,8 +61,8 @@ public class Empleado {
     return estadoId;
   }
 
-  public void setEstadoId(int estado) {
-    this.estadoId = estado;
+  public void setEstadoId(int estadoId) {
+    this.estadoId = estadoId;
   }
 
   public Categoria getCategoria() {
