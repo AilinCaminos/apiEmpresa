@@ -6,6 +6,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
@@ -22,6 +24,7 @@ public class Categoria {
     private BigDecimal sueldoBase;
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) //,fetch = FetchType.EAGER)
     @LazyCollection(LazyCollectionOption.FALSE)
+    @JsonIgnore
     private List<Empleado> empleados;
     
 

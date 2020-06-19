@@ -43,6 +43,7 @@ public class EmpleadoController {
         return ResponseEntity.ok(resp);
 
     }
+    
     @GetMapping("/empleados")
     public ResponseEntity<?> listarEmpleado(){
 
