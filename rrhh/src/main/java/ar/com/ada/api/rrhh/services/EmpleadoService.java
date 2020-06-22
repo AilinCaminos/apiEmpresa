@@ -1,11 +1,13 @@
 package ar.com.ada.api.rrhh.services;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.com.ada.api.rrhh.entities.Empleado;
+import ar.com.ada.api.rrhh.models.requests.SueldoInfoRequest;
 import ar.com.ada.api.rrhh.repos.EmpleadoRepository;
 
 @Service
@@ -35,6 +37,26 @@ public class EmpleadoService {
         return null;
     }
 
+    public void actualizarSueldoEmpleado(Empleado empleadoOriginal, BigDecimal sueldo){
 
-    
+        empleadoOriginal.setSueldo(sueldo);
+
+        empleadoRepository.save(empleadoOriginal);
+
+    }
+
+    public void actualizarEstado(Empleado empleado,int estadoId){
+
+        empleado.setEstadoId(estadoId);
+
+        empleadoRepository.save(empleado);
+    }
+
+    public void borrarEmpleado(Empleado empleado){
+
+        this.actualizarEstado(empleado, 0);
+
+    }
+
+
 }
