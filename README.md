@@ -11,7 +11,7 @@ _Realizado con JAVA 8, Spring Boot, se utiliza MySQL como base de datos para pro
 _Se utiliza Postman para probar los web methods._
 
 Documentacion: 
-https://documenter.getpostman.com/view/11716300/T1Dv8ucH?version=latest
+https://documenter.getpostman.com/view/11716300/T1Dv8uc
 
 ## Despliegue
 
